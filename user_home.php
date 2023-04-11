@@ -21,10 +21,11 @@
     <title>Document</title>
 </head>
 <body>
-<a href="user_mis_imagenes.php"> Imagenes </a>
+<header>
+    <a href="user_mis_imagenes.php"> Imagenes </a>
 
-
-<a href="subir_imagenes.php"> Subir Imagenes </a>
+    <a href="subir_imagenes.php"> Subir Imagenes </a>
+</header>
 
 <a href="user_cerrar_sesion.php"> Cerrar Sesion </a>
 <p> Bienvenido/a,<?=$_SESSION["usuari"];?></p>

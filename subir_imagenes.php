@@ -15,7 +15,9 @@
     <title>Subir Imagenes</title>
 </head>
 <body>
-<a href="user_home.php">Home</a>
+<header>   
+    <a href="user_home.php">Home</a>
+</header>
 
 
     <h2> Subir Imagen</h2>

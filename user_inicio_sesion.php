@@ -7,8 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-<p> <a href="user_registro.php">Registrarse</a></p>
-<a href="Index.php">Volver Atras</a>
+<ul class ="menu">
+    <?php if ($user): ?>
+        <li> <a href ="user_mis_imagenes.php"> imagenes </a> </li>
+        <li> <a href ="user_cerrar_sesion.php"> Salir </a> </li>
+    <?php else: ?>
+        <li> <a href ="user_registro.php"> Registrarse </a> </li>
+        <li> <a href ="user_inicio_sesion.php"> Iniciar Sesion </a> </li>
+    <?php endif; ?>
+ </ul>
 <h2> Iniciar Sesion </h2>
 
 

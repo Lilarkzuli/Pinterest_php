@@ -12,6 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Principal.css">
     <title>Pagina</title>
     <style>
         img{
@@ -34,12 +35,20 @@ if ($_SESSION["usuari"] ){
 }
 
 ?>
+<header>
+    <ul class ="menu">
+        <?php if ($user): ?>
+            <li> <a href ="user_mis_imagenes.php"> imagenes </a> </li>
+            <li> <a href ="user_cerrar_sesion.php"> Salir </a> </li>
+        <?php else: ?>
+            <li> <a href ="user_registro.php"> Registrarse </a> </li>
+            <li> <a href ="user_inicio_sesion.php"> Iniciar Sesion </a> </li>
+        <?php endif; ?>
+    </ul>
+</header>
 
 
 
-    <p> <a href="user_inicio_sesion.php">Iniciar sesion </a></p>
-    <p> <a href="user_registro.php">Registro </a></p>
-    <p> <a href="user_cerrar.php">Cerrar sesion</a></p>
     <h3> Imagenes </h3>
     <img src="https://elcorreoweb.es/binrepository/761x400/43c0/675d400/none/10703/NECT/eca-gatos-colores-2_20937334_20221026082307.jpg"/>
     <img src="https://www.cadenadial.com/wp-content/uploads/2021/09/cancer-en-gatos-2-e1632400021130.jpg"/>  
