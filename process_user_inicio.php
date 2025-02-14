@@ -1,31 +1,44 @@
+
+<?php
+
+
+
+$enlace=mysqli_connect("localhost", "root", "Password#9231", "DB2");
+
+
+
+
+    
+$nom = $_POST['nom'];
+$contraseña = $_POST['Contraseña'];
+
+
+$encontrado = false;
+$seleccion=mysqli_query($enlace, "SELECT * from users");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Principal.css">
     <title>Registrando</title>
 </head>
 <body>
     <?php 
-
     session_start();
-    $nom = $_POST['nom'];
-    $contraseña = $_POST['Contraseña']; 
- 
-
-
-    $encontrado = false;
-    $fitxer = fopen("usuarios.txt","r");
-    while (!feof($fitxer)) {
-        $nom_fitxer = fgets($fitxer);
-        $correu_fitxer = fgets($fitxer);
-        $pwd_fitxer = fgets($fitxer);
-        if ($nom."\n" == $nom_fitxer && $contraseña ."\n" == $pwd_fitxer){
-            $encontrado = true;
-            break;
+    while ($datos = mysqli_fetch_array($seleccion)){
+        if ($datos['name']== $nom && $datos['password']==$contraseña){
+            
+            $encontrado=true;
         }
     }
+    
+ 
         // si no es troba el nom
         if (!$encontrado){
             // dades incorrectes

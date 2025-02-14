@@ -15,6 +15,7 @@
     $quota=$dato[6];
 
 
+    $_SESSION["id"]=$id;
     
 
 
@@ -59,34 +60,13 @@
 
 <p><?=$_SESSION["id"];?></p>
 
-<?php
+ <p> Ver tablas </p>
 
-    if ($quota > 3000){
+ <?php
 
-    echo "Te quedan $quota MB de quota";
-    }
+$query = "SELECT * FROM users";
+$resultado = $conn->query($query);
 
-
-    else {
-        echo "Te quedan $quota MB de quota, eso es menos de 3 MB por favor borra imagenes";
-
-    }
-
-
-
-
-    if ($admin==1){
-        echo  "<div class ='menu2'>";     
-            echo" <li class='persona'><p class='pers'> Super Admin Sectret Settings </p></li>";
-        
-                echo "<li><a class='boton' href='Ver_Tabla.php'> Ver Quotas</a></li>";
-                echo "<li><a  class='boton' href='user_cerrar_sesion.php'> Ficheros </a></li>";
-                echo "<li><a  class='boton' href='user_cerrar_sesion.php'> Boton del Panico </a></li>";
-            
-        echo "<div>";
-
-
-    }
 ?>
 
 </main>

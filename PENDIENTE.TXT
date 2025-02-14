@@ -1,0 +1,4 @@
+vale Tengo que 
+-Tokens que funcionen
+-Al borrar una imagen se recupere el espacio perdido que estaba ocupando
+-aviso de falta de espacio

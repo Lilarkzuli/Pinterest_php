@@ -1,40 +1,76 @@
+<?php
+
+
+
+$enlace=mysqli_connect("localhost", "root", "Password#9231", "DB2");
+
+if (!$enlace){
+    echo "Error en la base de datos" . mysqli_connect_error();
+    exit;
+
+
+
+}
+
+
+
+    
+$nom = $_POST['nom'];
+$correo = $_POST['Correo']; 
+$contraseña = $_POST['Contraseña'];
+$contraseña2 = $_POST['Contraseña2'];
+$Fallar=false;
+
+$fecha=date('Y-m-d');
+$insertar="INSERT INTO users VALUES ( DEFAULT ,'$nom', '$correo','$contraseña',0,'$fecha', 20480 )";
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Principal.css">
     <title>Registrando</title>
 </head>
 <body>
-    <a href="Index.php">Home</a><br>
-    <?php 
-    $nom = $_POST['nom'];
-    $correo = $_POST['Correo']; 
-    $contraseña = $_POST['Contraseña'];
-    $contraseña2 = $_POST['Contraseña2'];
-    $Fallar=false;
+<header>
+    
+<h2> Esto es un pinterest de mierda salu2</h2>
+    <ul class="menu">
+        <li><a class="boton" href="Index.php">Home</a><br></li>
+    </ul>
+</header>
+<main>
 
-   /* echo "Registro Recibido! <br>" ;
-    echo "nom:  $nom <br>"; 
-    echo "Correo:  $Correo <br>";
-    echo "Contraseña: $Contraseña <br>";
-    echo "Contraseña2:  $Contraseña2 <br>"; */
+<?php 
+
+
+
+
+
+//    echo "Registro Recibido! <br>" ;
+//     echo "nom:  $nom <br>"; 
+//     echo "Correo:  $correo <br>";
+//     echo "Contraseña: $contraseña <br>";
+//     echo "Contraseña2:  $contraseña2 <br>"; 
     
 
 
 
 
     if ( $nom==""){
-        echo "No hay nada en el campo nombre, pon algo e intentalo otra vez.<br>";
+        echo "<p class='alerta'> No hay nada en el campo nombre, pon algo e intentalo otra vez.<br></p>";
         $Fallar=true;
     }
     if( $correo==""){
-        echo "No hay nada en el campo Correo, pon algo e intentalo otra vez.<br>";
+        echo "<p class='alerta'>No hay nada en el campo Correo, pon algo e intentalo otra vez.<br>";
         $Fallar=true;
     }   
     if ($contraseña=="" ||  $contraseña2=="") {
-        echo "Las contraseñas no coinciden.<br>";
+        echo " <p class='alerta'> Las contraseñas no contienen nada.<br>";
         $Fallar=true;
 
     }
@@ -42,65 +78,69 @@
    
 
     if ( $contraseña != $contraseña2){
-        echo "las contraseñas no coinciden.<br>";
+        echo "<p class='alerta'>las contraseñas no coinciden.<br>";
         $Fallar=true;
 
 
     }   
     if ($Fallar==true){
-            echo"<a href='user_registro.php'>Volver atras</a>";
+            echo"<li><a href='user_registro.php'>Volver atras</a></li>";
     }
 
 
-    $encontrado = false ;
-    $fichero = fopen ("usuarios.txt","r");
-       
-    while (!feof($fichero)){
-    
-        $nom_fichero = fgets($fichero);
-        $correo_fichero= fgets($fichero);
-        $pass_fichero=  fgets($fichero);
-     
-        if ($nom == substr($nom_fichero,0,strlen($nom_fichero)-1)){
-            $encontrado = true;
-        }
 
+if ($fallar ==false){
+
+    $info=mysqli_query($enlace,"SELECT count(name) FROM users WHERE name='$nom'");
+
+
+    $info2 =mysqli_fetch_array($info);
+
+
+
+
+    echo $info2[0];
+
+
+    if ($info2[0]>0){
+        $encontrado=true;
+        echo "<p class='alerta'>el usuario que querias registrar ya existe, prueba otro e intentalo de nuevo";
+        echo"<li><a href='user_registro.php'>Volver atras</a></li>";
     }
-    fclose($fichero);
-
-
-
-
-
-
             
 
-            
+                
 
-    
-if (!$encontrado){
-    $fichero = fopen("usuarios.txt" , "a");
-    fwrite( $fichero, $nom ."\n");
-    fwrite( $fichero, $correo ."\n"); 
-    fwrite( $fichero, $contraseña ."\n");
-    fclose($fichero);
+        
+    if (!$encontrado){
+        $encontrado = false ;
+          
+        $resultado =mysqli_query($enlace, $insertar);
+          
 
+        if (!$resultado){
+            echo "registro fallido
+            <br>";
 
-
-    echo "te has registrado correctamente.<br>";
-    echo "<a href='Index.php'>Volver a Inicio</a><br>";
         }
 
-else {
-
-    
-        echo "el usuario ya existe<br>";
-        echo"<a href='user_registro.php'> Volver atras</a>";
-
+        else{
+            echo "registro completado";
+        }
     }
+        
 
-    
+}
+
+
+
+
     ?>
-   
+
+</main>
+<footer>
+        <p> Copyright Helena 2023 </p>
+
+</footer>  
 </body>
 </html>

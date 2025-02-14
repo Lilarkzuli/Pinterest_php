@@ -1,0 +1,133 @@
+img{
+    width: 20em;
+    height: 20%;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+    
+div.ubo{
+    display:flex;
+    background-color:rgb(107, 33, 115) ;
+    align-items: center;
+    align-content: center;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 1em;
+    margin-left: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    border-radius: 52px 52px 52px 52px;
+    
+}
+
+a.Borra{
+
+    text-decoration: none;
+    background-color: rgb(221, 7, 7);
+    color:rgb(255, 184, 184);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:4em;
+    height: 2em;
+    border-radius: 38px 38px 38px 38px;
+    margin-top: 1em;
+
+}
+
+a.Borra:hover{
+
+    background-color: rgb(81, 9, 9);
+
+    
+}
+
+
+div.todo{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+main.img{
+    margin-top: 2em;
+}
+
+
+
+a.Token{
+    text-decoration: none;
+    background-color: rgb(95, 230, 218);
+    color:rgb(4, 73, 94);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:4em;
+    height: 2.5em;
+    border-radius: 38px 38px 38px 38px;
+    margin-top: 1em;
+}
+a.Token:hover{
+
+    background-color: rgb(0, 99, 94);
+    color:rgb(162, 215, 231);
+
+    
+}
+
+a.descarga{
+    text-decoration: none;
+    background-color: rgb(230, 113, 232);
+    color:rgb(100, 13, 80);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:6em;
+    height: 2.5em;
+    border-radius: 38px 38px 38px 38px;
+    margin-top: 1em;
+}
+a.descarga:hover{
+
+    background-color: rgb(98, 3, 76);
+    color:rgb(246, 146, 237);
+
+    
+}
+div.ubo2{
+    display:flex;
+    background-color:rgb(107, 33, 115) ;
+    align-items: center;
+    align-content: center;
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    width: 50em;
+    border-radius: 52px 52px 52px 52px;
+    
+}
+
+.grande{
+
+    width: 30em;
+}
